@@ -1,0 +1,16 @@
+.contForm {
+    display: flex;
+}
+
+.col {
+    margin-right: 150px;
+}
+
+.contenedor {
+    display: flex;
+    flex-direction: column;
+}
+
+.alert {
+    max-width: 70%;
+}

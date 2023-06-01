@@ -1,0 +1,40 @@
+<div class="contenedor">
+    <h2>{{title}}</h2>
+    <form (submit)="guardar()" #clienteForm="ngForm">
+        <mat-form-field appearance="legacy">
+            <input matInput placeholder="Identificacion" required [(ngModel)]="model.identificacion" #identificacion="ngModel" name="identificacion">
+            <mat-error *ngIf="!identificacion.valid || identificacion.pristine">
+                La Identificacion es requerida
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="legacy">
+            <input matInput placeholder="Nombre" required [(ngModel)]="model.nombre" #nombre="ngModel" name="nombre">
+            <mat-error *ngIf="!nombre.valid || nombre.pristine">
+                El Nombre es requerido
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="legacy">
+            <input matInput placeholder="Fecha de Nacimiento" required type="date" [(ngModel)]="model.fecha" #fecha="ngModel" name="fecha">
+            <mat-error *ngIf="!fecha.valid || fecha.pristine">
+                La Fecha es requerida
+            </mat-error>
+        </mat-form-field>
+        <div class="submit">
+            <button mat-raised-button color="primary" [disabled]="!clienteForm.form.valid" type="submit">Guardar</button>
+        </div>
+    </form> 
+    <div *ngIf="showSuccess" class="alert alert-success" role="alert">
+        <p class="p-alert">Cliente Guardado</p>
+    </div>
+    <div *ngIf="showError" class="alert alert-danger" role="alert">
+        <p class="p-alert">Ha ocurrido un error</p>
+    </div>
+    
+</div>
+
+
+
+
+

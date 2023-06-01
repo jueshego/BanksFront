@@ -1,0 +1,60 @@
+<div class="contenedor">
+    <h2>{{title}}</h2>
+    <form class="form" [formGroup]="formGuardarCuenta" (ngSubmit)="guardar()">
+        <input type="hidden" name="cuentaId" formControlName="cuentaId">
+
+        <mat-form-field>
+            <mat-label>Cliente</mat-label>
+            <mat-select formControlName="clienteId" name="clienteId">
+                <mat-option *ngFor ="let item of clientes" [value]="item.clienteId" >{{item.nombre}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="formGuardarCuenta.get('clienteId')?.touched && formGuardarCuenta.get('clienteId')?.errors?.['required']">
+                El Cliente es requerido
+            </mat-error>
+        </mat-form-field>
+        
+        <mat-form-field appearance="legacy">
+            <input matInput placeholder="Numero" formControlName="numero" class="form-control"  name="numero">
+            <mat-error *ngIf="formGuardarCuenta.get('numero')?.touched && formGuardarCuenta.get('numero')?.errors?.['required']">
+                El Numero es requerido
+            </mat-error>
+            <mat-error *ngIf="formGuardarCuenta.get('numero')?.touched && formGuardarCuenta.get('numero')?.errors?.['minlength']">
+                El Numero debe tener 10 digitos
+            </mat-error>
+        </mat-form-field>
+        
+        <mat-form-field>
+            <mat-label>Tipo</mat-label>
+            <mat-select formControlName="tipo" name="tipo">
+                <mat-option value="Ahorros">Ahorros</mat-option>
+                <mat-option value="Corriente">Corriente</mat-option>
+                <mat-option value="AFC">AFC</mat-option>
+            </mat-select>
+            <mat-error *ngIf="formGuardarCuenta.get('tipo')?.touched && formGuardarCuenta.get('tipo')?.errors?.['required']">
+                El Tipo es requerido
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="legacy">
+            <input matInput placeholder="Saldo" formControlName="saldo" class="form-control"  name="saldo">
+            <mat-error *ngIf="formGuardarCuenta.get('saldo')?.touched && formGuardarCuenta.get('saldo')?.errors?.['required']">
+                El Saldo es requerido
+            </mat-error>
+            <mat-error *ngIf="formGuardarCuenta.get('saldo')?.touched && formGuardarCuenta.get('saldo')?.hasError('pattern')">
+                El saldo debe tener solo numeros
+            </mat-error>
+        </mat-form-field>
+
+        <div class="divChk">
+            <label>Activa</label>
+            <div class="checkBox">
+                <mat-checkbox formControlName="activa" name="activa"></mat-checkbox>
+            </div>
+        </div>
+
+        <div class="submit">
+            <button mat-button color="primary" (click)="limpiar()">Limpiar</button>
+            <button id="btnSubmit" mat-raised-button type="submit" [disabled]="formGuardarCuenta.invalid" color="primary">Guardar</button>
+        </div>
+    </form>
+</div>

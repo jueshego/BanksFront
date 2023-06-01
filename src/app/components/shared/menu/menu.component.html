@@ -1,0 +1,18 @@
+<div class="contMenu">
+    <div class="row">
+        <button mat-button [matMenuTriggerFor]="menu">Clientes</button>
+        <mat-menu #menu="matMenu">
+            <a [routerLink]="['listar-clientes']" mat-menu-item>Listar</a>
+            <a [routerLink]="['guardar-cliente']" mat-menu-item>Crear</a>
+        </mat-menu>
+    </div>
+    
+    <div class="row">
+        <a [routerLink]="['cuentas']" mat-button>Cuentas</a>
+    </div>
+</div>
+
+
+
+
+

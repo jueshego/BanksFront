@@ -1,0 +1,34 @@
+th, td {
+    max-width: 170px;
+    white-space: nowrap;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.center {
+    text-align: center;
+}
+
+.right {
+    text-align: right;
+}
+
+.cell-sm {
+    width: 30px;
+}
+
+.cell-md {
+    width: 70px;
+}
+
+.cell-xl {
+    width :150px;
+}
+
+tbody > tr {
+ cursor: pointer;
+}
+
+tr:hover {
+    background-color: #73A9CF;
+}

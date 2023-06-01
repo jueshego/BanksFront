@@ -1,0 +1,18 @@
+<div class="contenedor">
+    <div class="contForm">
+        <div class="col">
+            <app-guardar-cuenta [clientes]="clientes" [modoEdit]="modoEdit" (cuentaGuardar)="guardar($event)" [cuentaForm]="cuentaEdit" (limpiarForm)="init"></app-guardar-cuenta>
+        </div>
+        <div class="col">
+            <app-cuentas-list [cuentas]="cuentas" (verCuenta)="editar($event)"></app-cuentas-list>
+        </div>
+    </div>
+
+    <div *ngIf="showSuccess" class="alert alert-success" role="alert">
+        <p class="p-alert">Cuenta Guardada</p>
+    </div>
+    <div *ngIf="showError" class="alert alert-danger" role="alert">
+        <p class="p-alert">Ha ocurrido un error</p>
+    </div>
+</div>
+

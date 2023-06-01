@@ -1,0 +1,23 @@
+<div class="row">
+    <h2>Lista de Cuentas</h2>
+    <table class="grid">
+        <thead>
+            <tr>
+                <th class="cell-sm">#</th>
+                <th>Numero</th>
+                <th>Tipo</th>
+                <th class="cell-sm">Activa</th>
+                <th>Saldo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="fila" *ngFor="let item of cuentas; let i = index" (click)="ver(item)">
+                <td class="cell-sm center">{{i + 1}}</td>
+                <td>{{item.numero}}</td>
+                <td class="center">{{item.tipo}}</td>
+                <td class="cell-sm center"><input type="checkbox" [disabled]="true" [checked]="item.activa"></td>
+                <td class="right">{{item.saldo | currency}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

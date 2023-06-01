@@ -1,0 +1,29 @@
+<div class="row">
+    <h2>Listado de Clientes</h2>
+    <table class="grid">
+        <thead>
+            <tr>
+                <th class="cell-sm center">#</th>
+                <th>Identificacion</th>
+                <th>Nombre</th>
+                <th class="center">Fecha de Nacimiento</th>
+                <th class="cell-md center"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="fila" *ngFor="let item of clientes; let i = index">
+                <td class="cell-sm center">{{i + 1}}</td>
+                <td>{{item.identificacion}}</td>
+                <td>{{item.nombre }}</td>
+                <td class="center">{{item.fechaNacimiento | date:'d/MM/y'}}</td>
+                <td class="cell-md center"><button mat-button color="primary" (click)="editar(item.clienteId)">Editar</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="footer">
+        <button mat-raised-button color="primary" (click)="nuevo()">Nuevo</button>
+        <div *ngIf="showError" class="alert alert-danger" role="alert">
+            <p class="p-alert">Ha ocurrido un error</p>
+        </div>
+    </div>
+</div>

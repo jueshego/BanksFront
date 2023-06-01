@@ -1,0 +1,26 @@
+.footer {
+    margin-top: 20px;
+}
+
+th, td {
+    max-width: 170px;
+    white-space: nowrap;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.center {
+    text-align: center;
+}
+
+.cell-sm {
+    width: 30px;
+}
+
+.cell-md {
+    width: 70px;
+}
+
+.cell-xl {
+    width :150px;
+}
